@@ -30,3 +30,8 @@ def fn(self, name='world'): # 先定义函数
 	print('Hello, %s.' % name)
 
 Hello = type('Hello', (object,), dict(hello=fn)) # 创建Hello class
+
+
+## metaclass
+# 先定义metaclass，就可以创建类，最后创建实例
+# 
