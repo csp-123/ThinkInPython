@@ -59,13 +59,13 @@ print(os.name)
 print(os.path.abspath('.'))
 
 # 在某个目录下创建一个新目录，首先把新目录的完整路径表示出来:
-print(os.path.join('E:\workspace\sublineWorkspace\ThinkInPython\section10', 'dirtest'))
+print(os.path.join('\section10', 'dirtest'))
 
 # 然后创建一个目录
-os.mkdir('E:\workspace\sublineWorkspace\ThinkInPython\section10\dirtest')
+os.mkdir('\dirtest')
 
 # 删掉一个目录
-os.rmdir('E:\workspace\sublineWorkspace\ThinkInPython\section10\dirtest')
+os.rmdir('\dirtest')
 
 # 把两个路径合成一个时，不要直接拼字符串，而要通过os.path.join()函数，
 # 这样可以正确处理不同操作系统的路径分隔符
@@ -73,6 +73,22 @@ os.rmdir('E:\workspace\sublineWorkspace\ThinkInPython\section10\dirtest')
 # 这样可以把一个路径拆分为两部分，后一部分总是最后级别的目录或文件名
 # os.path.splitext()可以直接让你得到文件扩展名，很多时候非常方便
 # 对文件重命名:
-os.rename('test.txt', 'test.py')
+#os.rename('test.txt', 'test.py')
 # 删掉文件:
-os.remove('test.py')
+#os.remove('test.py')
+
+## 序列化
+import pickle
+
+d = dict(name='Bob', age=20, score=88)
+print(pickle.dumps(d))
+
+f = open('dump.txt', 'wb')
+pickle.dump(d, f)
+f.close()
+
+
+f = open('dump.txt', 'rb')
+d = pickle.load(f)
+f.close()
+print(d)
